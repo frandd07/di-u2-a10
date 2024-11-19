@@ -8,22 +8,22 @@ export default function Scoreboard() {
   });
 
   function handlePlusClick() {
-    setPlayer((prevPlayer) => ({
-      ...prevPlayer,
-      score: prevPlayer.score + 1,
+    setPlayer((player) => ({
+      ...player,
+      score: player.score + 1,
     }));
   }
 
   function handleFirstNameChange(e) {
-    setPlayer((prevPlayer) => ({
-      ...prevPlayer,
+    setPlayer((player) => ({
+      ...player,
       firstName: e.target.value,
     }));
   }
 
   function handleLastNameChange(e) {
-    setPlayer((prevPlayer) => ({
-      ...prevPlayer,
+    setPlayer((player) => ({
+      ...player,
       lastName: e.target.value,
     }));
   }

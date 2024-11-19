@@ -14,13 +14,12 @@ export default function Canvas() {
   });
 
   function handleMove(dx, dy) {
-    setShape((prevShape) => ({
-      ...prevShape,
-      position: {
-        x: prevShape.position.x + dx,
-        y: prevShape.position.y + dy,
+    setShape({
+      ...shape, position:{
+        x: shape.position.x + dx,
+        y: shape.position.y + dy,
       }
-    }));
+    })
   }
 
   function handleColorChange(e) {
