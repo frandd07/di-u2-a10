@@ -1,33 +1,34 @@
 import { useState } from 'react';
 import Background from './Background.js';
 import Box from './Box.js';
+import { produce } from 'immer';
 
 const initialPosition = {
   x: 0,
-  y: 200
+  y: 600
 };
 
-export default function Canvas() {
+export default function Canvas2() {
   const [shape, setShape] = useState({
     color: 'orange',
     position: initialPosition
   });
 
   function handleMove(dx, dy) {
-    setShape((prevShape) => ({
-      ...prevShape,
-      position: {
-        x: prevShape.position.x + dx,
-        y: prevShape.position.y + dy,
-      }
-    }));
+    setShape((prevShape) =>
+      produce(prevShape, (draft) => {
+        draft.position.x += dx;
+        draft.position.y += dy;
+      })
+    );
   }
 
   function handleColorChange(e) {
-    setShape({
-      ...shape,
-      color: e.target.value
-    });
+    setShape((prevShape) =>
+      produce(prevShape, (draft) => {
+        draft.color = e.target.value;
+      })
+    );
   }
 
   return (
